@@ -1,0 +1,30 @@
+---
+layout:     post
+title:      "node정리"
+subtitle:   " \"내가 공부한 node 정리 \""
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - node
+---
+
+# node에 대한 정리
+
+## node란
+* 싱글 스레드를 이용한 자바스크립트 런타임 환경 제공
+
+
+## npm
+node package manager 줄임말.
+node에 대한 모듈을 명령어로 간단하게 설치 할 수 있게 해준다
+
+## 명령어 모음
+```
+npm install [module]
+npm ls -g(전역설치 목록)
+```
+
+
+

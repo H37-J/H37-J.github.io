@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "Gradle"
+subtitle:   " \"Gradle 관련정리 \""
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Gradle
+---
+## 스프링 실행관련
+* gradle build: 스프링 빌드
+* gradle bootrun: 스프링 실행
+
+

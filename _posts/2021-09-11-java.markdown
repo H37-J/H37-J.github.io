@@ -1,0 +1,21 @@
+---
+layout:     post
+title:      "java(1)"
+subtitle:   " \"java 정리 \""
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - java
+---
+
+# Java에 관한 정리
+
+## 람다식
+함수를 하나의 식으로 표현한 것. 메소드 이름이 없다. 그렇기 때문에 익명 함수라고도 볼 수 있다.
+익명 함수들은 모두 일급 객체다. 일급 객체는 함수의 변수로 전달 할 수 있다.
+
+
+
+

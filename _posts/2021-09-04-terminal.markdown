@@ -1,0 +1,49 @@
+---
+layout:     post
+title:      "터미널(1)"
+subtitle:   " \"터미널 사용법 정리 \""
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 터미널
+    
+---
+
+# 터미널 명령어 정리
+
+## 서버관련
+### CPU, Memory 확인
+```
+top, htop
+```
+
+## 네트워크관련
+### 포트확인
+```
+lsof -i :3000 | grep LISTEN (3000포트 사용중인 프로세스 확인)
+``` 
+
+### 네트워크 상황 확인
+```
+netstat
+```
+
+### 포트열기
+```
+iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+```
+
+## 압축관련 
+### 압축풀기
+```
+tar -xvzf
+```
+
+
+
+
+
+
+

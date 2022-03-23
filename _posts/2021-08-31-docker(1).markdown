@@ -1,0 +1,133 @@
+---
+layout:     post
+title:      "Docker 사용법(1)"
+subtitle:   " \"도커 사용법에 대하여(1) \""
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Docker
+  
+---
+
+# Docker 사용법 (1)...
+
+## 이미지빌드
+
+### 이미지 관련모음
+* 태그를 지정하지 않으면 최신버전으로 가져온다
+```terminal
+docker pull mysql(이미지 다운로드)
+docker images(이미지 리스트 출력)
+docker rmi imagename:tag(이미지 삭제)
+```
+
+## 컨테이너 
+-d: 백그라운드 실행
+-p: 포트지정 
+-name: 컨테이너 이름지정
+-a 실행하지 않는 컨테이너도 확인
+```terminal
+docker create --name [서버명] -p [외부 포트:컨테이너 내부포트] [이미지명:버전태그](컨테이너 생성)
+
+
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 3306:3306 mysql:latest(컨테이너 시작)
+
+docker ps -a(컨테이너 리스트 출력)
+docker start container_name
+docker stop container_name
+docker restart container_name
+docker exec it container_name bash(컨에티너 접속)
+```
+
+
+## Volume이란
+로컬에 파일들을 도커 컨테이너 서버에 올린다.
+
+### 데이터 볼륨
+
+도커 컨테이너가 실행 중에 작성 혹은 수정된 파일은 호스트 쪽 파일 시스템에 마운트되지 않는 한 컨테이너가 파기될 때 호스에서 함께 삭제 된다. 컨테이너를 사용해서 애플리케이션을 운영하다 보면 새로운 버전의 컨테이너가 배포돼더라도 이전 버전의 컨테이너에서 사용하던 파일들을 그대로 사용할 수 있어야 한다. 이런 경우에 사용되는 것이 데이터 볼륨 이다. 
+
+## Dockerfile
+* FROM(이미지를 무엇으로 사용할 것인지 설정)
+
+* RUN(RUN 명령문은 마치 쉘(shell)에서 커맨드를 실행하는 것 처럼 이미지 빌드 과정에서 필요한 커맨드를 실행하기 위해서 사용 된다. 쉘(shell)을 통해 거의 못하는 작업이 없는 것 처럼 RUN 명령문으로 할 수 있는 작업은 무궁무진하지만 보통 이미지 안에 특정 소트트웨어를 설치하기 위해서 많이 사용 된다)
+
+* WORKDIR(WORKDIR 명령문은 쉘(shell)의 cd 명령문처럼 컨테이너 상에서 작업 디텍토리로 전환을 위해서 사용 된다. WORKDIR 명령문으로 작업 디렉터리를 전환하면 그 이후에 등장하는 모든 RUN, CMD, ENTRYPOINT, COPY, ADD 명령문은 해당 디렉터리를 기준으로 실행된다)
+
+* ENTRYPOINT(ENTRYPOINT 명령문은 이미지를 컨테이너로 띄울 때 항상 실행되야 하는 커맨드를 지정할 때 사용된다. ENTRYPOINT 명령문은 Docker 이미지를 마치 하나의 실행 파일처럼 사용할 때 유용하다. 왜냐하면 컨테이너가 뜰 때 ENTRYPOINT 명령문으로 지정된 커맨드가 실행되고, 이 커맨드로 실행된 프로세스가 죽을 때, 컨테이너로 따라서 종료되기 때문이다.)
+
+* EXPOSE(TCP 80포트로 리스닝)
+
+
+### 명령어
+docker build --tag imagename:tag dockerfilepath
+
+
+## redis 설치
+```
+version: '3.7'
+services:
+  redis:
+    image: redis:alpine
+    command: redis-server --port 6379
+    container_name: redis
+    hostname: redis
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - 6379:6379
+```
+docker exec -it redis redis-cli
+
+
+## mysql 설치
+```yaml
+version: "3.7" # 파일 규격 버전
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의 ( 컴포즈에서 컨테이너 : 서비스 )
+  db: # 서비스 명
+    image: mysql:5.7 # 사용할 이미지
+    restart: always
+    command: --lower_case_table_names=1 <----------
+    container_name: mysql-test # 컨테이너 이름 설정
+    ports:
+      - "3307:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)  <- 컨테이너 내부는 무조건 3306
+    environment: # -e 옵션
+      - MYSQL_DATABASE=database이름넣음
+      - MYSQL_ROOT_PASSWORD=password넣음  # MYSQL 패스워드 설정 옵션
+      - TZ=Asia/Seoul
+
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - /Users/Shared/data/mysql-test:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+```
+
+## node 설치
+```yaml
+version: '3'
+services:
+  proxy:
+    image: nginx:latest   # 최신 버전의 Nginx 사용
+    container_name: proxy # container 이름은 proxy
+    ports: 
+      - "80:80"           # 80번 포트를 host와 container 맵핑
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf # nginx 설정 파일 volume 맵핑
+    restart: "unless-stopped" # 내부에서 에러로 인해 container가 죽을 경우 restart
+  express:
+    build:
+      context: ./server  # 빌드할 Dockerfile이 위치한 경로
+    container_name: express
+    expose:
+      - "3000"           # 다른 컨테이너에게 3000번 포트 open
+    volumes:
+      - ./source:/source # host <-> container의 source 디렉토리를 공유
+      - /source/node_modules # !!!!!!!! Dockerfile 설명에서 다시 설명합니다.
+    restart: "unless-stopped"
+```
+
+
