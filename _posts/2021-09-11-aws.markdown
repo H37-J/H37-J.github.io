@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "aws 사용법에 대하여(1)"
-subtitle:   " \aws 사용법 정리 \"
+title:      "AWS 정리"
+subtitle:   "AWS에 대한 정리 "
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
