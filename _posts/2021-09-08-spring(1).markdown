@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "스프링 프레임워크 정리(1)"
-subtitle:   " \"내가 공부한 스프링 프레임워크 \""
+title:      "스프링 정리"
+subtitle:   " \내가 공부한 스프링 \"
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

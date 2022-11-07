@@ -1,0 +1,22 @@
+---
+layout:     post
+title:      "Java"
+subtitle:  ""
+date:       2022-05-01 12:31:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+- Java
+  
+---
+
+```java
+class App {
+    public static void main() {
+        test();
+    }
+}
+```
+
+
