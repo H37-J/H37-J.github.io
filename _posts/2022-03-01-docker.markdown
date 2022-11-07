@@ -1,132 +1,47 @@
 ---
-layout:     post
-title:      "Docker 사용법"
-subtitle:   " \도커 사용법에 대하여 \"
-author:     "H37-J"
-header-img: "img/post-bg-2015.jpg"
-catalog: true
+layout: post
+title: "2019 年 PWA(Progressive Web App) 凉了吗？"
+subtitle: "Is PWA effectively dead in 2019?"
+author: "Hux"
+header-style: text
 tags:
-- Docker
-
+- 知乎
+- Web
+- PWA
 ---
 
-# Docker 사용법 (1)...
+> 这篇文章转载自[我在知乎上的回答](https://www.zhihu.com/question/352577624/answer/901867825)
 
-## 이미지빌드
+作为 PWA 在国内的早期[布道者](https://zhuanlan.zhihu.com/p/25167289)与[实践者](https://zhuanlan.zhihu.com/p/27853228)，我觉得挺凉的。
+以下都是主观感受且 opinion is my own。
 
-### 이미지 관련모음
-* 태그를 지정하지 않으면 최신버전으로 가져온다
-```terminal
-docker pull mysql(이미지 다운로드)
-docker images(이미지 리스트 출력)
-docker rmi imagename:tag(이미지 삭제)
-```
+**PWA（甚至整个 Web）似乎被 Google（Chrome）与「第三世界」绑到一起去了。**「这世界还有多少人没上过网、没有 4G、没有 3G……印度、印度尼西亚、非洲、乌干达……」这便是这两年的 Chrome Dev Summit 的主旋律了。
 
-## 컨테이너
--d: 백그라운드 실행
--p: 포트지정
--name: 컨테이너 이름지정
--a 실행하지 않는 컨테이너도 확인
-```terminal
-docker create --name [서버명] -p [외부 포트:컨테이너 내부포트] [이미지명:버전태그](컨테이너 생성)
+而这或许也是现在整个 Google 的主旋律吧，于是便成了 Chrome 和 Chrome 的产品经理们的 KPI（OKR），美其名曰「为了互联网的下一个十亿用户」。我不是说关心第三世界这事不好，但问题在于**你一边嘴上说着 「Open Web、大家的 Web」**，**一边身体上却只想着把 Web 变成「你想要的那个 Web」，然后把其他 Web 的发展方向都「耽误」掉了**。
 
+PWA 的商业案例至今为止，我感到 legit（正当）的仍然只有 twitter，是真正在按一个「给所有用户都能用」的标准来做的。Airbnb/Pinterest/Spotify 可能能及格，而其他的则要么是商业互吹（吹一波走人），要么就是利益（市场导向）一致（Instagram 以及逐年增多的印度系产品）。
 
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 3306:3306 mysql:latest(컨테이너 시작)
+我相信很多开发者和我一样对 PWA 的期待本来是作为 RN/Flutter 等跨平台开发的 alternatives（替代品），结果现在连几年前的 [hybrid](https://www.zhihu.com/search?q=hybrid&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D) 方案 Cordova (Phonegap)、Electron的实力都没到， 不要说国内各种自家魔改的 Webview（容器、小程序）了。两年的时间本足以做大量这方面的工作 —— 留学前我还担心是不是两年后我就跟不上 PWA 的发展了，结果现在根本就没什么大动静 —— 每年 CDS 确实都仍然会扔几个新的有关 [capability](https://www.zhihu.com/search?q=capability&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D) 的 API 出来， 但是跟了这么多年 Chrome Dev Summit 我也算是看清了这秀场的节奏 —— 每年扔出来的东西吧，第二年弃坑 2/3，剩下 1/3 就是遛狗 —— virtual list 说了几年了？类似 portal 这样的 [navigation-transition](https://www.zhihu.com/search?q=navigation-transition&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D) 说了几年了？file system API 说了几年了？**我吐槽的点在于，Google（Chrome）你年年画大饼，最后大部分有真正投入资源的，全是你那「第三世界」新兴市场相关的。**作为 Web 开发者你一定知道，有多少新 API 落地到我们日常开发了？
 
-docker ps -a(컨테이너 리스트 출력)
-docker start container_name
-docker stop container_name
-docker restart container_name
-docker exec it container_name bash(컨에티너 접속)
-```
+Don't just take my word. 你应该自己去听听这两年的 Chrome Dev Summit，是不是绝大多数的场次都围绕着对「低配」内存、CPU、[网络环境](https://www.zhihu.com/search?q=%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D)的优化 —— 俨然一副「Web 就只适合在这么不行的地方用」的气息，你一个 Web 开发者都要针对 L1/L2 Cache 优化了你说我们怎么不直接写汇编呢？而单纯谈论 CSS/JS 等 Web 技术的发展，不带使用场景 [bias](https://www.zhihu.com/search?q=bias&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D) 的场次比例一年比一年少。至于 WebAssembly/WebGL/WebXR？—— who TM care? 人家连网都上不了你还想玩 3D/VR 游戏？人家连电脑都没有你还想在 Web 上做生产力工具？WebAssembly 场靠着 Google Research 有点 AI 项目讲了讲 thread 和 SIMD 都能让我感觉到一种与整场会议违和的尴尬……而 3D, VR and AR 总共加起来就做了个六分钟的小短片播，把我乐得。
+
+所谓的 Fugu Project（PWA 项目在 Google 的代号）在我眼里就是 Google**「让 Web 成为他们在第三世界的开发平台」**而准备的一个项目：**官方提及 PWA 最爱提的用户场景不是 Web 的可索引性、可链接性、甚至都不是即开即用（on-demand），而是「用户因为没有流量和 wifi 所以不愿安装[原生应用](https://www.zhihu.com/search?q=%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D)」 。**那几个 dev advocate 反正每年就做些 P 用都没有的玩具在那里自娱自乐自 high，做个扫雷游戏然后说我们这个一路支持到**功能机用键盘来玩**哦……一向亲 JSer 的 Addy Osmani 的 Adaptive Loading 场也来一句「我们要为开 **Data Saver（省流量模式、无图模式**）的用户做优化！」，这世界大概是又回去到了 WAP 的时代吧……而项目带头人 Alex Russell，即便我仍然很感激您过去对 Web 的影响和贡献，但您这两年来动不动就是「怼框架怼友商怼空气」—— 你们这些垃圾框架，居然要 50 KB！你们这些垃圾开发者，用什么框架，Use the platform！（i.e. 用我们的 Web Component （的框架）！）你们这些垃圾浏览器，还不快点支持我们要的 API！ —— 都是你们伤害了我的 W(K)e(P)b(I)！**司马昭之心，路人皆知**。
+
+quote [@尤雨溪](//www.zhihu.com/people/cfdec6226ece879d2571fbc274372e9f)
+
+![](https://pic4.zhimg.com/80/v2-82770d1b0366904c2254908d097e0a60_720w.jpg?source=1940ef5c)
+
+他们在乎的是「下一个十亿用户」，中国显然不在其中呢
 
 
-## Volume이란
-로컬에 파일들을 도커 컨테이너 서버에 올린다.
-
-### 데이터 볼륨
-
-도커 컨테이너가 실행 중에 작성 혹은 수정된 파일은 호스트 쪽 파일 시스템에 마운트되지 않는 한 컨테이너가 파기될 때 호스에서 함께 삭제 된다. 컨테이너를 사용해서 애플리케이션을 운영하다 보면 새로운 버전의 컨테이너가 배포돼더라도 이전 버전의 컨테이너에서 사용하던 파일들을 그대로 사용할 수 있어야 한다. 이런 경우에 사용되는 것이 데이터 볼륨 이다.
-
-## Dockerfile
-* FROM(이미지를 무엇으로 사용할 것인지 설정)
-
-* RUN(RUN 명령문은 마치 쉘(shell)에서 커맨드를 실행하는 것 처럼 이미지 빌드 과정에서 필요한 커맨드를 실행하기 위해서 사용 된다. 쉘(shell)을 통해 거의 못하는 작업이 없는 것 처럼 RUN 명령문으로 할 수 있는 작업은 무궁무진하지만 보통 이미지 안에 특정 소트트웨어를 설치하기 위해서 많이 사용 된다)
-
-* WORKDIR(WORKDIR 명령문은 쉘(shell)의 cd 명령문처럼 컨테이너 상에서 작업 디텍토리로 전환을 위해서 사용 된다. WORKDIR 명령문으로 작업 디렉터리를 전환하면 그 이후에 등장하는 모든 RUN, CMD, ENTRYPOINT, COPY, ADD 명령문은 해당 디렉터리를 기준으로 실행된다)
-
-* ENTRYPOINT(ENTRYPOINT 명령문은 이미지를 컨테이너로 띄울 때 항상 실행되야 하는 커맨드를 지정할 때 사용된다. ENTRYPOINT 명령문은 Docker 이미지를 마치 하나의 실행 파일처럼 사용할 때 유용하다. 왜냐하면 컨테이너가 뜰 때 ENTRYPOINT 명령문으로 지정된 커맨드가 실행되고, 이 커맨드로 실행된 프로세스가 죽을 때, 컨테이너로 따라서 종료되기 때문이다.)
-
-* EXPOSE(TCP 80포트로 리스닝)
+即便你也是 Web 开发者我也是 Web 开发者，但显然我们已经不是 Google（Chrome）想要支持的 Web 开发者了：当无数 Web 开发者起来为 JS 社区在应用框架的先进性上探索，当我们想要证明 Web 在今天的硬件上终于可以挑战 Native，当我们想要在动画和交互上挑战当年的 Flash，当我们认为 Web 技术已经可以胜任众多[桌面软件](https://www.zhihu.com/search?q=%E6%A1%8C%E9%9D%A2%E8%BD%AF%E4%BB%B6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D)，当社区期待 Web 能够积极跟进下一个新兴技术（whatever that is）甚至担当重任，当国人在谈论着 5G 的到来 Web 开发者应该做什么时 —— 这个当年挟 Web 以令 OS，推动 Web 平台 state-of-the-art 的 Google（Chrome）却变得让我不认识了。
 
 
-### 명령어
-docker build --tag imagename:tag dockerfilepath
+**Web 自诞生以来便就是个[同床异梦](https://www.zhihu.com/search?q=%E5%90%8C%E5%BA%8A%E5%BC%82%E6%A2%A6&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A901867825%7D)的地方 —— Web 也因此永垂不朽；而对于 PWA 能在当前 Google 的主导下迅速发展成一个有竞争力的跨平台开发解决方案这事儿，或许只是其中的又一黄粱美梦罢了。**
 
 
-## redis 설치
-```
-version: '3.7'
-services:
-  redis:
-    image: redis:alpine
-    command: redis-server --port 6379
-    container_name: redis
-    hostname: redis
-    labels:
-      - "name=redis"
-      - "mode=standalone"
-    ports:
-      - 6379:6379
-```
-docker exec -it redis redis-cli
 
+**补充两点：**
 
-## mysql 설치
-```yaml
-version: "3.7" # 파일 규격 버전
-services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의 ( 컴포즈에서 컨테이너 : 서비스 )
-  db: # 서비스 명
-    image: mysql:5.7 # 사용할 이미지
-    restart: always
-    command: --lower_case_table_names=1 <----------
-    container_name: mysql-test # 컨테이너 이름 설정
-    ports:
-      - "3307:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)  <- 컨테이너 내부는 무조건 3306
-    environment: # -e 옵션
-      - MYSQL_DATABASE=database이름넣음
-      - MYSQL_ROOT_PASSWORD=password넣음  # MYSQL 패스워드 설정 옵션
-      - TZ=Asia/Seoul
-
-    command: # 명령어 실행
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
-    volumes:
-      - /Users/Shared/data/mysql-test:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
-```
-
-## node 설치
-```yaml
-version: '3'
-services:
-  proxy:
-    image: nginx:latest   # 최신 버전의 Nginx 사용
-    container_name: proxy # container 이름은 proxy
-    ports: 
-      - "80:80"           # 80번 포트를 host와 container 맵핑
-    volumes:
-      - ./proxy/nginx.conf:/etc/nginx/nginx.conf # nginx 설정 파일 volume 맵핑
-    restart: "unless-stopped" # 내부에서 에러로 인해 container가 죽을 경우 restart
-  express:
-    build:
-      context: ./server  # 빌드할 Dockerfile이 위치한 경로
-    container_name: express
-    expose:
-      - "3000"           # 다른 컨테이너에게 3000번 포트 open
-    volumes:
-      - ./source:/source # host <-> container의 source 디렉토리를 공유
-      - /source/node_modules # !!!!!!!! Dockerfile 설명에서 다시 설명합니다.
-    restart: "unless-stopped"
-```
-
-
+*   我支持「小程序」的产品价值，也支持 PWA 作为 Web 开放标准一部分的技术价值。
+*   PWA 目前主要靠 Google 推动是客观事实，且 PWA 的发展必须依赖平台（浏览器）的参与。
