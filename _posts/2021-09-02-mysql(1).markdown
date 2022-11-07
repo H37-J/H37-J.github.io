@@ -12,10 +12,6 @@ tags:
 
 # mysql 명령어 목록
 
-## 설정
-* bundle install
-
-
 ## CREATE
 ```mysql
  create user 'youraccout'@'%' identified by 'yourpassword';(사용자 생성)

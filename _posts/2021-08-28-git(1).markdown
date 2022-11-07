@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "깃허브(1)"
+title:      "깃허브"
 subtitle:   " \"깃허브 명령어 정리 \""
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - Git
+    - GIT
 ---
 
 # github 명령어 목록

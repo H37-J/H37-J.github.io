@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "터미널(1)"
-subtitle:   " \"터미널 사용법 정리 \""
+title:      "터미널 사용법 정리"
+subtitle:   " \"터미널 명령어와 사용법 \""
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
@@ -10,8 +10,6 @@ tags:
     - 터미널
     
 ---
-
-# 터미널 명령어 정리
 
 ## 서버관련
 ### CPU, Memory 확인

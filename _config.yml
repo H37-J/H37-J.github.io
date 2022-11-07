@@ -3,7 +3,7 @@ title: H37-J Blog
 SEOTitle: H37-J
 header-img: img/home-bg-o.jpg
 email: these990712@gmail.com
-description: "H37-J Developer Blog"
+description: "H개발 블로그"
 keyword: "Spring, Javascript"
 url: "https://h37-j.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
