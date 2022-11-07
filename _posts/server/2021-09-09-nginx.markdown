@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "nginx란?"
-subtitle:   " \nginx 정리 \"
+title:      "nginx"
+subtitle:   "nginx 정리"
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

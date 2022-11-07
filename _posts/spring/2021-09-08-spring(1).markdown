@@ -26,7 +26,7 @@ tags:
 스프링 애플리케이션 전반에 걸쳐 모든 구성요소의 제어 작업을 담당하는 IOC엔진. 정보를 참고해서 빈의 설정, 관계설정등의 제어를 총괄한다.
 
 ### 애너테이션
-* @Component: Spring framework에서 <context:component:scan>과 같다
+* @Component: Spring framework <context:component:scan>과 같다
 
 ## 데이터베이스
 
