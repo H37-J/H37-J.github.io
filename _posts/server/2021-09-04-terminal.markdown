@@ -11,15 +11,11 @@ tags:
     
 ---
 
-## 서버관련
-
 ### CPU, Memory 확인
 
 ```terminal
 top, htop
 ```
-
-## 네트워크관련
 
 ### 포트확인
 
@@ -27,13 +23,9 @@ top, htop
 lsof -i :3000 | grep LISTEN (3000포트 사용중인 프로세스 확인)
 ```
 
-### 네트워크 상황 확인
-
 ```terminal
 netstat
 ```
-
-### 포트열기
 
 ```terminal
 iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
@@ -41,8 +33,6 @@ iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
 
 ## 압축관련
 
-### 압축풀기
-
-```
+```terminal
 tar -xvzf
 ```

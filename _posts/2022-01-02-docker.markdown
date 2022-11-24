@@ -10,7 +10,7 @@ tags:
 
 ---
 
-## 이미지 관련
+### 이미지 관련
 
 * 태그를 지정하지 않으면 최신버전으로 가져온다
 
@@ -20,7 +20,7 @@ docker images(이미지 리스트 출력)
 docker rmi imagename:tag(이미지 삭제)
 ```
 
-## 컨테이너
+### 컨테이너
 
 -d: 백그라운드 실행  
 -p: 포트지정  
@@ -37,7 +37,7 @@ docker restart container_name
 docker exec it container_name bash(컨에티너 접속)
 ```
 
-## Volume이란
+### Volume이란
 
 로컬에 파일들을 도커 컨테이너 서버에 올린다.
 
@@ -45,7 +45,7 @@ docker exec it container_name bash(컨에티너 접속)
 
 도커 컨테이너가 실행 중에 작성 혹은 수정된 파일은 호스트 쪽 파일 시스템에 마운트되지 않는 한 컨테이너가 파기될 때 호스에서 함께 삭제 된다. 컨테이너를 사용해서 애플리케이션을 운영하다 보면 새로운 버전의 컨테이너가 배포돼더라도 이전 버전의 컨테이너에서 사용하던 파일들을 그대로 사용할 수 있어야 한다. 이런 경우에 사용되는 것이 데이터 볼륨 이다.
 
-## Dockerfile
+### Dockerfile
 
 * FROM(이미지를 무엇으로 사용할 것인지 설정)
   
@@ -57,7 +57,7 @@ docker exec it container_name bash(컨에티너 접속)
   
 * EXPOSE(TCP 80포트로 리스닝)
 
-## mysql 설치
+### mysql 설치
 
 ```yaml
 version: "3.7" # 파일 규격 버전

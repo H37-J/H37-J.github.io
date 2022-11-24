@@ -11,8 +11,6 @@ tags:
     
 ---
 
-## AWS사용법 정리
-
 ### root계정 변경하기
 
 sudo passwd root후 초기 비밀번호 설정가능

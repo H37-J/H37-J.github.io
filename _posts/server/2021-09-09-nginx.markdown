@@ -11,7 +11,7 @@ tags:
     
 ---
 
-## nginx란
+### nginx란
 
 * 정적 파일을 처리하는 HTTP로서의 역할 HTML,CSS,JAVASCRIPT,이미지와 같은 정보를 웹 브라우저에 전송하는 역할을 한다.
 
