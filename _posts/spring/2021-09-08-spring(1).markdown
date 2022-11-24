@@ -6,7 +6,7 @@ author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - Spring
+    - spring
 ---
 
 ### IOC(제어역전)
