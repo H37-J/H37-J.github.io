@@ -29,8 +29,6 @@ tags:
 
 * @Component: Spring framework <context:component:scan>과 같다
 
-## 데이터베이스
-
 ### JDBC
 
 * 테이블에 있는 데이터가 매핑되는 클래스를 엔티티라고도 한다.
