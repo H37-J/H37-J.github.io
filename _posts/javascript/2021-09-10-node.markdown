@@ -13,18 +13,17 @@ tags:
 # node에 대한 정리
 
 ## node란
-* 싱글 스레드를 이용한 자바스크립트 런타임 환경 제공
 
+싱글 스레드를 이용한 자바스크립트 런타임 환경 제공
 
 ## npm
-node package manager 줄임말.
+
+node package manager 줄임말.  
 node에 대한 모듈을 명령어로 간단하게 설치 할 수 있게 해준다
 
 ## 명령어 모음
-```
+
+``` terminal
 npm install [module]
 npm ls -g(전역설치 목록)
 ```
-
-
-
