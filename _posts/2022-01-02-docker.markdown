@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Docker 사용법"
-subtitle:   "도커 사용법에 대하여"
+title:      "도커 사용법"
+subtitle:   "도커 사용법 정리"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -10,11 +10,7 @@ tags:
 
 ---
 
-# Docker 사용법
-
-## 이미지빌드
-
-### 이미지 관련모음
+## 이미지 관련
 
 * 태그를 지정하지 않으면 최신버전으로 가져온다
 

@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "스프링 정리"
-subtitle:   "스프링에 대한 개념들"
+title:      "스프링의 기본 개념 정리"
+subtitle:   "스프링의 기본 개념"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -9,9 +9,7 @@ tags:
     - Spring
 ---
 
-# 스프링 프레임워크 정리
-
-## 기본 개념 정리
+## 스프링 프레임워크의 기본 단어 개념
 
 ### IOC(제어역전)
 

@@ -10,9 +10,9 @@ tags:
     - mysql
 ---
 
-# mysql 명령어 목록
+## mysql 명령어 목록
 
-## CREATE
+### CREATE
 
 ```mysql
  create user 'youraccout'@'%' identified by 'yourpassword';(사용자 생성)
@@ -22,4 +22,4 @@ grant all privileges on <yourDB>.* to '<youraccount>'@'%' identified by '<yourpa
 flush privileges;
 ```
 
-## SELECT
+### SELECT

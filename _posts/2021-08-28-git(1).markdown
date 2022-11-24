@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "깃허브"
-subtitle:   "깃허브 명령어 정리"
+subtitle:   "깃허브 관련 정리"
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
@@ -11,7 +11,7 @@ tags:
 ---
 
 
-## 명령어 리스트
+## 기본 명령어
 
 * git init (초기시작)
 * git branch -M main

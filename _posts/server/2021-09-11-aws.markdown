@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "AWS 정리"
-subtitle:   "AWS에 대한 정리 "
+subtitle:   "AWS에 기본 정리 "
 date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
@@ -11,33 +11,33 @@ tags:
     
 ---
 
-# AWS사용법 정리
+## AWS사용법 정리
 
-## root계정 변경하기
+### root계정 변경하기
 
 sudo passwd root후 초기 비밀번호 설정가능
 
-## 인바운드 규칙
+### 인바운드 규칙
 
 aws에서 인바운드 규칙에 포트를 추가해야 열수있다.
 ex) tocmat은 8080을 열어야 함.
 
-## 사용중인 포트보기
+### 사용중인 포트보기
 
 netstat -tnlp
 
-## 파일전송
+### 파일전송
 
 scp -i ~/.ssh/"hjk.pem" TestBoot-0.0.1-SNAPSHOT.jar  ubuntu@ec2-3-14-40-198.us-east-2.compute.amazonaws.com:./
 
-## 자바 설치
+### 자바 설치
 
 * apt update
 * apt list | grep jdk
 * apt install jdk
 * which java
 
-## JAR 백그라운드 실행
+### JAR 백그라운드 실행
 
 * nohup java -jar ~.jar &
 * ps -ef | grep java
