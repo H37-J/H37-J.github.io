@@ -28,7 +28,6 @@ public interface DataService {
 ```java
 @Slf4j
 public class MysqlService implements DataService {
-    
     public void service() {
         log.info("mysql 서비스 실행");
     }
@@ -36,7 +35,6 @@ public class MysqlService implements DataService {
 
 @Slf4j
 public class OracleService implements DataService {
-    
     public void service() {
         log.info("오라클 서비스 실행");
     }
@@ -47,7 +45,6 @@ public class OracleService implements DataService {
 ```java
 @Configuration
 public class DataServiceBean {
-    
     @Bean
     public DataService dataService() {
         return new OracleService();
