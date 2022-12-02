@@ -77,6 +77,6 @@ public class Client {
 ```
 
 위에서 오라클 서비스를 주입 받았기 때문에 오라클 서비스가  실행 되었다.
-<img src="./img/io.png">
+<img src="./img/io.png" alt="사진이 없습니다">
 
 </img>
