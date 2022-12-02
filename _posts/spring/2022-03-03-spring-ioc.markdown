@@ -16,7 +16,6 @@ tags:
 ### DI에 대한 예제
 
 다음과 같은 인터페이스가 있다고 가정 해보자.
-
 ```java
 public interface DataService {
     
@@ -26,7 +25,6 @@ public interface DataService {
 ```
 
 이 인터페이스를 구현하는 두 개의 서비스 클래스가 있다.
-
 ```java
 @Slf4j
 public class MysqlService implements DataService {
@@ -46,7 +44,6 @@ public class OracleService implements DataService {
 ```
 
 그리고 다음과 같이 빈 설정을 해준다.
-
 ```java
 @Configuration
 public class DataServiceBean {
@@ -59,7 +56,6 @@ public class DataServiceBean {
 ```
 
 클라이언트는 데이터서비스에 대한 의존성 주입을 아래와 같이 받을 수 있다.
-
 ```java
 @RestController
 @RequestMapping("/api/di")
@@ -77,6 +73,5 @@ public class Client {
 ```
 
 위에서 오라클 서비스를 주입 받았기 때문에 오라클 서비스가  실행 되었다.
-
 <img src="https://raw.githubusercontent.com/H37-J/H37-J.github.io/main/_posts/spring/img/io.png" alt="사진이 없습니다">
-</img>
+
