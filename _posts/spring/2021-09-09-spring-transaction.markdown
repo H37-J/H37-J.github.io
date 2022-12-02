@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "스프링 트랜잭션에 대하여"
+title:      "트랜잭션에 대하여"
 subtitle:   "트랜잭션에 대하여"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

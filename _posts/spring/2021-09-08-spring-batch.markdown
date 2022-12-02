@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "스프링 배치에 대한 정리"
+title:      "배치에 대한 대하여"
 subtitle:   "스프링 배치에 대하여"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

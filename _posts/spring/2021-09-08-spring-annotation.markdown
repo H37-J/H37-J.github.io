@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "스프링 빈에 대하여"
+title:      "빈에 대하여"
 subtitle:   "빈에 대한 정리"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

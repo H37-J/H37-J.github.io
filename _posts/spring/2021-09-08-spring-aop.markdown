@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "스프링 AOP에 대하여"
+title:      "AOP에 대하여"
 subtitle:   "AOP에 대한 정리"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"

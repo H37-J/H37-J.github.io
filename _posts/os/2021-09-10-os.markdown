@@ -7,7 +7,7 @@ author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - OS
+    - os
 ---
 
 ### 운영체제
