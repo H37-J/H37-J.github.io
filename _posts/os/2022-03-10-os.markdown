@@ -75,12 +75,6 @@ cp: 디렉터리, 파일 복사
 tar: 압축 -z: gzip 압축 명령을 호출하여 압축, -c 패키지파일, -v 실행중인 프로세스 표시, -f 파일이름 지정. tar -zcvf test.tar.gz aaa.txt bbb.txt  
 tar -xvf: 압축을 품
   
-useradd  
-userdel  
-usermod  
-passwd
-  
-grep  
 ps -ef: 실행중인 프로세스 확인.
 kill -9 pid: 프로세스 종료  
 
