@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "원칙 정리"
-subtitle:   "각종 원칙들에 대한 정리"
+title:      "SOLID란 무엇일까?"
+subtitle:   "SOLID에 대한 정리"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
