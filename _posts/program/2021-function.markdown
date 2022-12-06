@@ -1,0 +1,42 @@
+---
+layout:     post
+title:      "함수와 메서드의 차이는 무엇일까?"
+subtitle:   "함수와 메서드의 차이에 대하여"
+date:       2021-08-30 12:00:00
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - program
+---
+
+
+### 함수
+
+함수는 호출 하는데 있어 다음과 같이 객체와 관련없이 호출 할 수 있다.
+
+```java
+System.out.println("Test");
+```
+
+### 메서드
+
+메서드는 객체와 관련되어 진다.
+
+```java
+public class Math {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+Math math = new Math();
+math.add(1, 3);
+```
+
+### 메서드와 함수의 차이
+
+메서드는 다른 클래스와 의존 관계를 가질 수도 있지만, 함수는 의존 관계를 가지지 않고 독립적으로 실행 되어진다.
+
+
