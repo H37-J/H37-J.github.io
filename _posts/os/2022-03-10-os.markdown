@@ -2,7 +2,6 @@
 layout:     post
 title:      "운영체제 기본 개념들"
 subtitle:   "운영체제에 대한 정리"
-date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true

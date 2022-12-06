@@ -2,7 +2,6 @@
 layout:     post
 title:      "리눅스의 명령어들"
 subtitle:   "리눅스 명령어 정리"
-date:       2021-08-30 12:00:00
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
