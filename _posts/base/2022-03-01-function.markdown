@@ -24,14 +24,14 @@ System.out.println("Test");
 메서드는 객체와 관련되어 진다.
 
 ```java
-public class Math {
+public class MathComponent {
 
     public int add(int a, int b) {
         return a + b;
     }
 }
 
-Math math = new Math();
+MathComponent math = new MathComponent();
 math.add(1, 3);
 ```
 
