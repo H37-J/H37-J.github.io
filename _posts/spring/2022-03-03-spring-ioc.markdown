@@ -72,3 +72,6 @@ public class Client {
 위에서 오라클 서비스를 주입 받았기 때문에 오라클 서비스가  실행 되었다.
 <img src="https://raw.githubusercontent.com/H37-J/H37-J.github.io/main/_posts/spring/img/io.png" alt="사진이 없습니다">
 
+### DI의 장점
+* 각 클래스를 빈으로 만들어 모듈처럼 따로 관리 할 수 있다. 즉 결합도가 낮아지고 응집도가 높아진다
+* 사용자는 모듈이 어떻게 만들어졌는지에 대한 것은 신경 쓰지 않고 그저 가져다 쓰기만 하면 된다
