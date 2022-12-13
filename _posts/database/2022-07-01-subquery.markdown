@@ -1,0 +1,80 @@
+---
+layout:     post
+title:      "서브쿼리"
+subtitle:   "서브쿼리의 예시"
+author:     "H37-J"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - mysql
+---
+
+### 서브쿼리
+
+다음와 같은 테이블 구조가 있다.
+
+<img src="https://raw.githubusercontent.com/H37-J/H37-J.github.io/main/_posts/database/img/orders.png" alt="사진이 없습니다">
+
+orders테이블의 user_id는 user테이블의 외래키이다.
+
+```sql
+SELECT * FROM user
+```
+
+다음과 같은 데이터들을 미리 user 테이블에 insert 해놨다.
+
+| id | created\_at | updated\_at | basic\_address | detail\_address | email | money | name | password | role |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 2022-12-14 01:45:15 | 2022-12-14 01:45:15 | 서울 | null | test1gmail.com | 100000 | 테스트1 | test1234 | USER |
+| 2 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 서울 | null | test2gmail.com | 100000 | 테스트2 | test1234 | USER |
+| 3 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 서울 | null | test3gmail.com | 100000 | 테스트3 | test1234 | USER |
+| 4 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 서울 | null | test4gmail.com | 100000 | 테스트4 | test1234 | USER |
+| 5 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 서울 | null | test5gmail.com | 100000 | 테스트5 | test1234 | USER |
+| 6 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test6gmail.com | 100000 | 테스트6 | test1234 | USER |
+| 7 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test7gmail.com | 100000 | 테스트7 | test1234 | USER |
+| 8 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test8gmail.com | 100000 | 테스트8 | test1234 | USER |
+| 9 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test9gmail.com | 100000 | 테스트9 | test1234 | USER |
+| 10 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test10gmail.com | 100000 | 테스트10 | test1234 | USER |
+
+
+```sql
+SELECT * FROM orders
+```
+
+주문 테이블 전체를 조회한 결과이다.
+
+| id | created\_at | updated\_at | amount | basic\_address | detail\_address | order\_name | order\_number | order\_status | product\_count | request\_message | product\_id | user\_id |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 2022-12-14 02:06:12 | 2022-12-14 02:06:12 | 10000 | null | null | 아디다스 신발 | b441e2ec-458d-47ed-b673-d9346892875b | PAYING | 1 | null | 1 | 1 |
+| 2 | 2022-12-14 02:06:14 | 2022-12-14 02:06:14 | 10000 | null | null | 아디다스 신발 | 7098a9d1-307e-484d-a08d-2959c8207f3f | PAYING | 1 | null | 1 | 2 |
+| 3 | 2022-12-14 02:06:16 | 2022-12-14 02:06:16 | 10000 | null | null | 아디다스 신발 | 539baa33-7aca-41bf-a8aa-91f92b12ae2d | PAYING | 1 | null | 1 | 6 |
+| 4 | 2022-12-14 02:06:17 | 2022-12-14 02:06:17 | 10000 | null | null | 아디다스 신발 | 3b83f253-a66d-440e-83c7-bad111c8b4fe | PAYING | 1 | null | 1 | 7 |
+
+이 때, 주문 내역을 조회 하는데 서울에서 주문한 내역만 조회 하고 싶을 땐 어떻게 해야할까?
+다음과 같이 서브쿼리를 사용 할 수 있다
+
+```sql
+SELECT * FROM orders WHERE user_id IN (SELECT id FROM USER WHERe user.basic_address = "서울")
+```
+
+| id | created\_at | updated\_at | amount | basic\_address | detail\_address | order\_name | order\_number | order\_status | product\_count | request\_message | product\_id | user\_id |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 2022-12-14 02:06:12 | 2022-12-14 02:06:12 | 10000 | null | null | 아디다스 신발 | b441e2ec-458d-47ed-b673-d9346892875b | PAYING | 1 | null | 1 | 1 |
+| 2 | 2022-12-14 02:06:14 | 2022-12-14 02:06:14 | 10000 | null | null | 아디다스 신발 | 7098a9d1-307e-484d-a08d-2959c8207f3f | PAYING | 1 | null | 1 | 2 |
+
+### 조인
+
+만약 여기서 유저 테이블을 조회 하는데, 주문 내역이 있는 사용자만 조회 하고 싶을 땐 조인으로 다음과 같이 조회 할 수 있다.
+
+```sql
+SELECT u.* from user AS u INNER JOIN orders AS o ON u.id = o.user_id
+```
+
+| id | created\_at | updated\_at | basic\_address | detail\_address | email | money | name | password | role |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 2022-12-14 01:45:15 | 2022-12-14 01:45:15 | 서울 | null | test1gmail.com | 100000 | 테스트1 | test1234 | USER |
+| 2 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 서울 | null | test2gmail.com | 100000 | 테스트2 | test1234 | USER |
+| 6 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test6gmail.com | 100000 | 테스트6 | test1234 | USER |
+| 7 | 2022-12-14 01:45:16 | 2022-12-14 01:45:16 | 경기도 | null | test7gmail.com | 100000 | 테스트7 | test1234 | USER |
+
+위와 같이 주문내역이 있는 사용자만 조회 하였다.
