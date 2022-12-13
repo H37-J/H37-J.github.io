@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "서브쿼리"
-subtitle:   "서브쿼리의 예시"
+title:      "서브쿼리와 조인"
+subtitle:   "서브쿼리와 조인의 예시"
 author:     "H37-J"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
