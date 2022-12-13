@@ -58,6 +58,8 @@ SELECT * FROM orders
 SELECT * FROM orders WHERE user_id IN (SELECT id FROM USER WHERe user.basic_address = "서울")
 ```
 
+그럼 다음과 같이 기본주소가 서울에서 주문한 유저들만 조회 되었다.
+
 | id | created\_at | updated\_at | amount | basic\_address | detail\_address | order\_name | order\_number | order\_status | product\_count | request\_message | product\_id | user\_id |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2022-12-14 02:06:12 | 2022-12-14 02:06:12 | 10000 | null | null | 아디다스 신발 | b441e2ec-458d-47ed-b673-d9346892875b | PAYING | 1 | null | 1 | 1 |
